@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yauritux.mappers.RuleMapper">
+	<select id="getRuleById" parameterType="String" resultType="com.yauritux.domain.Rule">
+		SELECT
+		rule_id as ruleId,
+		rule_name as ruleName,
+		rule_desc as ruleDesc
+		FROM RULES
+		WHERE RULE_ID = #{ruleId}
+	</select>
+	<select id="getRuleByName" parameterType="String" resultType="com.yauritux.domain.Rule">
+		SELECT
+		rule_id as ruleId,
+		rule_name as ruleName,
+		rule_desc as ruleDesc
+		FROM RULES
+		WHERE RULE_NAME = #{ruleName}
+	</select>
+	<!-- Instead of referencing Fully Qualified Class Names we can register 
+		Aliases in mybatis-config.xml and use Alias names. -->
+	<resultMap type="Rule" id="RuleResult">
+		<id property="ruleId" column="rule_id" />
+		<result property="ruleName" column="rule_name" />
+		<result property="ruleDesc" column="rule_desc" />
+	</resultMap>
+
+	<select id="getAllRules" resultMap="RuleResult">
+		SELECT * FROM RULES
+	</select>
+	
+	<insert id="insertRule" parameterType="Rule" useGeneratedKeys="true"
+		keyProperty="ruleId">
+		INSERT INTO RULES(rule_name, rule_desc)
+		VALUES(#{ruleName}, #{ruleDesc})
+	</insert>	
+</mapper>
