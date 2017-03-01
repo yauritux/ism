@@ -19,7 +19,10 @@ Jython sources will be wrapped and exposed through EJB (Session bean).
 
 ## Running
 1. `docker run --rm=true --name ism-engine -p 8080:8080 -p 9990:9990 -it yauritux/ism`
-2. If you're using [Docker](https://www.docker.com) with *Linux* as your operating system, then you can check the IP Address of your running docker instance by using this command: `docker inspect -f '{{ .NetworkSettings.IPAddress }}' ism-engine`
+2. If you're using [Docker](https://www.docker.com) with *Linux* as your operating system, then you can check the IP Address of your running docker instance by using this following command: 
+```sh
+docker inspect -f '{{ .NetworkSettings.IPAddress }}' ism-engine
+```
 3. If you're using [Docker](https://www.docker.com) with operating system other than *Linux*, then you can check the IP Address of your running docker instance as follow:
 ```sh
 docker-machine ip
