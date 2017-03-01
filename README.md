@@ -14,8 +14,8 @@ Jython sources will be wrapped and exposed through EJB (Session bean).
 
 ## Deployments
 
-1. Build the sources through one single [maven](https://maven.apache.org), i.e. `mvn clean package`
-2. Build the docker image as following: `docker build --tag=yauritux/ism .`
+1. Build the sources through one single [maven](https://maven.apache.org) command, i.e. `mvn clean package`
+2. Build the docker image using this command: `docker build --tag=yauritux/ism .`
 
 ## Running
 1. `docker run --rm=true yauritux/ism`
