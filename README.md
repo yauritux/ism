@@ -18,7 +18,8 @@ Jython sources will be wrapped and exposed through EJB (Session bean).
 2. Build the docker image using this command: `docker build --tag=yauritux/ism .`
 
 ## Running
-1. `docker run --rm=true yauritux/ism`
+1. `docker run --rm=true --name ism-engine -p 8080:8080 -p 9990:9990 -it yauritux/ism`
+2. Check the IP address of Docker Machine using this command: `docker inspect -f '{{ .NetworkSettings.IPAddress }}' ism-engine
 
 # Issues
 
